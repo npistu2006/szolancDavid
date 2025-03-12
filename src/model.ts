@@ -5,8 +5,8 @@ const words = ["ház", "kár", "lap", "nap", "rak", "tál", "fut", "rög",
     "fűz", "fúr", "dúl", "dől", "kár", "tőr", "lúd", "lég", "lát", "sál"];
 
 export let inputValueList: string[][] = [];
-const startWord:string = "";
-const endWord:string = "";
+export let startWord:string;
+export let endWord:string;
 
 
 export function getRandomWord() {
@@ -14,5 +14,9 @@ export function getRandomWord() {
 }
 
 export function setStartWord(){
-    startWord
+    return startWord = words.splice(Math.floor(Math.random() * words.length), 1)[0];
+}
+
+export function setEndWord(){
+    return endWord = words.splice(Math.floor(Math.random() * words.length), 1)[0];
 }

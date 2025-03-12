@@ -1,5 +1,5 @@
-import { getRandomWord } from "./model.js";
-import { renderBoxes, startButtonManager } from "./view.js";
+import { endWord, getRandomWord, setEndWord, setStartWord, startWord } from "./model.js";
+import { displayStartEnd, renderBoxes, startButtonManager } from "./view.js";
 
 
 export function init(){
@@ -7,8 +7,10 @@ export function init(){
 }
 
 export function startBtnClickHandler(){
-    renderBoxes()
-    getRandomWord()
-    const w = getRandomWord()
-    console.log(w);
+    renderBoxes();
+    setStartWord();
+    setEndWord();
+    displayStartEnd();
+
+    console.log("Kezdő: ",startWord,"\n","Végső: ",endWord);
 }
