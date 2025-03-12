@@ -14,12 +14,13 @@ export function startBtnClickHandler(){
     console.log("Kezdő: ",startWord,"\n","Végső: ",endWord);
 }
 
-export function validateInput(){
-    getInputValue();
-    fillInputValueList();
+export function validateInput(event:Event){
+    const target = event.target as HTMLInputElement;
+    const value = getInputValue(target)
+    fillInputValueList(value);
     const startInput = document.querySelector("#start-word") as HTMLInputElement;
     if( inputValueList.length > 0 ){
-        startInput.value = inputValueList[-1];
+        startInput.value = inputValueList[inputValueList.length-1];
     }
     console.log(inputValueList);
 }

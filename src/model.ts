@@ -21,15 +21,15 @@ export function setEndWord(){
     return endWord = words.splice(Math.floor(Math.random() * words.length), 1)[0];
 }
 
-export function getInputValue(){
+export function getInputValue(target: HTMLInputElement){
     const input = document.querySelector("#intermediate-word") as HTMLInputElement;
     const value = input.value;
-    return inputValue = value;
+    return value;
 }
 
-export function fillInputValueList(){
-    if(inputValue != "" || !inputValue.includes(" ") || inputValue.length === 3){
-        return inputValueList.push(inputValue);
+export function fillInputValueList(value:string){
+    if(value != "" || !value.includes(" ") || value.length === 3){
+        return inputValueList.push(value);
     }
     else{
         alert("Legyen 3 karakter hosszú, és ne tartalmazzon szóközt!")

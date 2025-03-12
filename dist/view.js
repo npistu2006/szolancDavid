@@ -1,4 +1,5 @@
-import { startBtnClickHandler } from "./controller.js";
+import { startBtnClickHandler, validateInput } from "./controller.js";
+import { startWord, endWord } from "./model.js";
 export function startButtonManager() {
     const button = document.querySelector(".start");
     button?.addEventListener("click", startBtnClickHandler);
@@ -26,8 +27,16 @@ export function renderBoxes() {
         wrapperTag.appendChild(inputElements);
         if (middleInput) {
             middleInput.focus();
+            middleInput.addEventListener("change", validateInput);
         }
+        //middleInput?.addEventListener("change", ) TODO
     }
     const button = document.querySelector(".start");
     button?.removeEventListener("click", startBtnClickHandler);
+}
+export function displayStartEnd() {
+    const startInput = document.querySelector("#start-word");
+    const endInput = document.querySelector("#end-word");
+    startInput.value = startWord;
+    endInput.value = endWord;
 }
