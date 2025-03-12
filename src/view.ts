@@ -1,4 +1,4 @@
-import { startBtnClickHandler } from "./controller.js";
+import { startBtnClickHandler, validateInput } from "./controller.js";
 import { setEndWord, setStartWord, startWord, endWord } from "./model.js";
 
 export function startButtonManager() {
@@ -29,8 +29,9 @@ export function renderBoxes() {
         wrapperTag.appendChild(inputElements);
         if (middleInput) {
             middleInput.focus();
+            middleInput.addEventListener("change", validateInput);
         }
-        
+        //middleInput?.addEventListener("change", ) TODO
     }
     const button = document.querySelector(".start");
     button?.removeEventListener("click", startBtnClickHandler);
